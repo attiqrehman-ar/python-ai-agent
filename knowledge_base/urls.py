@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.document_list, name='document_list'),  # List all documents
     path('upload/', views.upload_document, name='upload_document'),  # Upload a document
     path('logout/', views.logout_view, name='logout'),
+    path('contact/', views.contact, name='contact'),
 ]

@@ -78,3 +78,47 @@ def logout_view(request):
     """
     logout(request)  # Logs the user out
     return redirect('chat:chat_home') 
+
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+
+
+def contact(request):
+    """
+    Handle the contact form submission.
+    If the form is valid, send the details to the admin's email.
+    """
+    if request.method == 'POST':
+        # Extracting form data
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        # Validating input data (You can add more complex validation here)
+        if not name or not email or not subject or not message:
+            messages.error(request, "All fields are required!")
+            return render(request, 'knowledge_base/contact.html')
+
+        # Send an email to the admin or support team
+        try:
+            send_mail(
+                f"Contact Us - {subject}",
+                f"Message from {name} ({email}):\n\n{message}",
+                settings.DEFAULT_FROM_EMAIL,  # The sender email
+                [settings.CONTACT_EMAIL],  # The recipient email (admin/support)
+            )
+            # Show success message and redirect to the same page or a thank you page
+            messages.success(request, "Your message has been sent successfully!")
+            return HttpResponseRedirect(request.path)  # Redirect to the same page after form submission
+        except Exception as e:
+            # In case of any error while sending email
+            messages.error(request, f"An error occurred while sending your message. Please try again later. {str(e)}")
+            return render(request, 'knowledge_base/contact.html')
+    
+    # Render the contact form page
+    return render(request, 'knowledge_base/contact.html')
+
