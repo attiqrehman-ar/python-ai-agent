@@ -27,17 +27,22 @@ def ask_question(request):
         for doc in documents:
             try:
                 with doc.file.open('r') as file:
-                    knowledge_base.append(file.read())
+                    content = file.read()
+                    paragraphs = content.split('\n\n')  # Split into smaller sections
+                    knowledge_base.extend(paragraphs)
             except Exception as e:
                 print(f"Error reading file {doc.file.name}: {e}")
-        
+
         if knowledge_base:
             query_embedding = model.encode(user_query, convert_to_tensor=True)
             doc_embeddings = model.encode(knowledge_base, convert_to_tensor=True)
             scores = util.pytorch_cos_sim(query_embedding, doc_embeddings)
-            best_score_index = scores.argmax().item()
 
-            if scores[0][best_score_index] > 0.5:
+            # Log similarity scores for debugging
+            print(f"Similarity scores: {scores}")
+
+            best_score_index = scores.argmax().item()
+            if scores[0][best_score_index] > 0.3:  # Lowered threshold
                 best_answer = knowledge_base[best_score_index]
             else:
                 best_answer = default_response
