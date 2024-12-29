@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interface</title>
+</head>
+<body>
+    <h1>Chat with AI Agent</h1>
+    <form id="chat-form">
+        <label for="question">Your Question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Ask</button>
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const question = document.getElementById('question').value;
+            const responseDiv = document.getElementById('response');
+
+            const response = await fetch('{% url "chat:ask_question" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: new URLSearchParams({ question: question })
+            });
+
+            const data = await response.json();
+            responseDiv.innerHTML = `<p><strong>Question:</strong> ${data.question}</p><p><strong>Answer:</strong> ${data.answer}</p>`;
+        });
+    </script>
+</body>
+</html>

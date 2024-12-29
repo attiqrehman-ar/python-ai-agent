@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knowledge Base - Document List</title>
+</head>
+<body>
+    <h1>Knowledge Base Documents</h1>
+    <a href="{% url 'knowledge_base:upload_document' %}">Upload New Document</a>
+    <ul>
+        {% for document in documents %}
+        <li>{{ document.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
