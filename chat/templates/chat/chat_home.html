@@ -6,21 +6,29 @@
     <title>Chat Interface</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            padding-top: 80px; /* Add space for the fixed navbar */
+            padding-bottom: 30px;
+        }
+
         .chat-bubble {
             padding: 10px 15px;
             border-radius: 15px;
             margin-bottom: 10px;
             max-width: 70%;
         }
+
         .user {
             background-color: #007bff;
             color: white;
             align-self: flex-end;
         }
+
         .ai {
             background-color: #f1f1f1;
             color: black;
         }
+
         .chat-container {
             display: flex;
             flex-direction: column;
@@ -28,9 +36,37 @@
             overflow-y: scroll;
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AI Agent</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- {% comment %} <a class="nav-link" href="{% url '#' %}">Home</a> {% endcomment %} -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'knowledge_base:document_list' %}">Document List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'knowledge_base:upload_document' %}">Upload Document</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- {% comment %} <a class="nav-link" href="{% url 'help' %}">Need Help</a> {% endcomment %} -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container mt-4">
         <h2 class="text-center">Chat with AI Agent</h2>
         <div id="chat-container" class="chat-container border p-3">
