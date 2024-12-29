@@ -51,3 +51,8 @@ def ask_question(request):
 
         return JsonResponse({'question': user_query, 'answer': best_answer})
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+# def dashboard(request):
+    
+#     return render(request, 'chat/dashboard.html')

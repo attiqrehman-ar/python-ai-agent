@@ -5,5 +5,6 @@ app_name = "chat"
 
 urlpatterns = [
     path('', views.chat_home, name='chat_home'),  # Chat interface
-    path('ask/', views.ask_question, name='ask_question'),  # Handle user query
+    path('ask/', views.ask_question, name='ask_question'),
+    # path('dashboard/', views.dashboard, name='dashboard') # Handle user query
 ]
