@@ -42,15 +42,12 @@ def ask_question(request):
             print(f"Similarity scores: {scores}")
 
             best_score_index = scores.argmax().item()
-            if scores[0][best_score_index] > 0.3:  # Adjusted threshold
+            if scores[0][best_score_index] > 0.3:  # Lowered threshold
                 best_answer = knowledge_base[best_score_index]
             else:
                 best_answer = default_response
         else:
             best_answer = default_response
 
-        # Format the output
-        response_message = f"**Your Question:** {user_query}\n\n**Answer:** {best_answer}"
-
-        return JsonResponse({'question': user_query, 'answer': best_answer, 'response_message': response_message})
+        return JsonResponse({'question': user_query, 'answer': best_answer})
     return JsonResponse({'error': 'Invalid request method'}, status=400)

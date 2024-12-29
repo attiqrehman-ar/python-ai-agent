@@ -2,6 +2,20 @@
 <html>
 <head>
     <title>Chat Interface</title>
+    <style>
+        .chat-message {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Chat with AI Agent</h1>
@@ -10,25 +24,49 @@
         <input type="text" id="question" name="question" required>
         <button type="submit">Ask</button>
     </form>
-    <div id="response"></div>
+    
+    <div id="response"></div> <!-- This will hold all responses -->
 
     <script>
         document.getElementById('chat-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+            e.preventDefault();  // Prevent the form from submitting the default way
             const question = document.getElementById('question').value;
             const responseDiv = document.getElementById('response');
 
-            const response = await fetch('{% url "chat:ask_question" %}', {
-                method: 'POST',
+            // Make sure to send the question as a POST request
+            const response = await fetch("{% url 'chat:ask_question' %}", {
+                method: 'POST',  // POST request instead of GET
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'X-CSRFToken': '{{ csrf_token }}'
                 },
-                body: new URLSearchParams({ question: question })
+                body: new URLSearchParams({ question: question })  // Send the question as form data
             });
 
             const data = await response.json();
-            responseDiv.innerHTML = <p><strong>Question:</strong> ${data.question}</p><p><strong>Answer:</strong> ${data.answer}</p>;
+
+            // Create new chat message elements
+            const questionElement = document.createElement('p');
+            questionElement.classList.add('chat-message', 'question');
+            questionElement.innerHTML = `<strong>Question:</strong> ${data.question}`;
+
+            const answerElement = document.createElement('p');
+            answerElement.classList.add('chat-message', 'answer');
+
+            // Check if there is a valid answer, otherwise show an error message
+            if (data.answer && data.answer !== "Sorry, I couldn't find an answer to your question.") {
+                answerElement.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
+            } else {
+                answerElement.classList.add('error');
+                answerElement.innerHTML = `<strong>Answer:</strong> Sorry, I couldn't find an answer to your question.`;
+            }
+
+            // Append the new question and answer below the previous ones
+            responseDiv.appendChild(questionElement);
+            responseDiv.appendChild(answerElement);
+
+            // Scroll to the latest message
+            responseDiv.scrollTop = responseDiv.scrollHeight;
         });
     </script>
 </body>
