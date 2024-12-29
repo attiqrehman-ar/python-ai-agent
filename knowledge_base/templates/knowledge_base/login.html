@@ -1,0 +1,23 @@
+<!-- login.html inside knowledge_base/templates/knowledge_base/ -->
+
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit">Login</button>
+    
+    <!-- Hidden next parameter to redirect after login -->
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+</form>
+
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

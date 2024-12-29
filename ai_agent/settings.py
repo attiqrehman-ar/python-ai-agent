@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware', 
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -127,6 +127,6 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = '/knowledge_base/document_list/'  # Redirect after admin login
-LOGOUT_REDIRECT_URL = '/login/'  # Redirect after admin logout
+# settings.py
+LOGIN_URL = 'login'  # Ensure this matches the login path in your urls.py
+# Redirect after admin logout
