@@ -15,6 +15,11 @@
         "src": "/static/(.*)",
         "dest": "/static/$1"
       }
-    ]
+    ],
+    "build": {
+      "env": {
+        "PYTHON_VERSION": "3.9"
+      }
+    }
   }
   
