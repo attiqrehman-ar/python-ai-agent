@@ -2,14 +2,18 @@
     "version": 2,
     "builds": [
       {
-        "src": "ai-agent-mocha/wsgi.py", 
+        "src": "ai_agent/wsgi.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "ai-agent-mocha/wsgi.py"  
+        "dest": "ai_agent/wsgi.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
       }
     ]
   }
