@@ -1,72 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .chat-message {
+        .chat-bubble {
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 70%;
+        }
+        .user {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .ai {
+            background-color: #f1f1f1;
+            color: black;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            overflow-y: scroll;
             margin-bottom: 20px;
-        }
-        .question {
-            font-weight: bold;
-        }
-        .answer {
-            color: green;
-        }
-        .error {
-            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Chat with AI Agent</h1>
-    <form id="chat-form">
-        <label for="question">Your Question:</label>
-        <input type="text" id="question" name="question" required>
-        <button type="submit">Ask</button>
-    </form>
-    
-    <div id="response"></div> <!-- This will hold all responses -->
+    <div class="container mt-4">
+        <h2 class="text-center">Chat with AI Agent</h2>
+        <div id="chat-container" class="chat-container border p-3">
+            <!-- Chat bubbles will be added dynamically -->
+        </div>
+        <form id="chat-form" class="d-flex">
+            <input type="text" id="question" class="form-control me-2" placeholder="Type your question..." required>
+            <button type="submit" class="btn btn-primary">Ask</button>
+        </form>
+    </div>
 
     <script>
         document.getElementById('chat-form').addEventListener('submit', async function(e) {
-            e.preventDefault();  // Prevent the form from submitting the default way
+            e.preventDefault();
             const question = document.getElementById('question').value;
-            const responseDiv = document.getElementById('response');
+            const chatContainer = document.getElementById('chat-container');
 
-            // Make sure to send the question as a POST request
+            // User question bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.textContent = question;
+            chatContainer.appendChild(userBubble);
+
+            // Clear input
+            document.getElementById('question').value = '';
+
+            // Fetch response
             const response = await fetch("{% url 'chat:ask_question' %}", {
-                method: 'POST',  // POST request instead of GET
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'X-CSRFToken': '{{ csrf_token }}'
                 },
-                body: new URLSearchParams({ question: question })  // Send the question as form data
+                body: new URLSearchParams({ question: question })
             });
-
             const data = await response.json();
 
-            // Create new chat message elements
-            const questionElement = document.createElement('p');
-            questionElement.classList.add('chat-message', 'question');
-            questionElement.innerHTML = `<strong>Question:</strong> ${data.question}`;
+            // AI response bubble
+            const aiBubble = document.createElement('div');
+            aiBubble.className = 'chat-bubble ai';
+            aiBubble.textContent = data.answer || "Sorry, I couldn't find an answer.";
+            chatContainer.appendChild(aiBubble);
 
-            const answerElement = document.createElement('p');
-            answerElement.classList.add('chat-message', 'answer');
-
-            // Check if there is a valid answer, otherwise show an error message
-            if (data.answer && data.answer !== "Sorry, I couldn't find an answer to your question.") {
-                answerElement.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
-            } else {
-                answerElement.classList.add('error');
-                answerElement.innerHTML = `<strong>Answer:</strong> Sorry, I couldn't find an answer to your question.`;
-            }
-
-            // Append the new question and answer below the previous ones
-            responseDiv.appendChild(questionElement);
-            responseDiv.appendChild(answerElement);
-
-            // Scroll to the latest message
-            responseDiv.scrollTop = responseDiv.scrollHeight;
+            // Scroll to the bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         });
     </script>
 </body>
