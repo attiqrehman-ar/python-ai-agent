@@ -1,0 +1,9 @@
+
+Question: What is the capital of France?
+Answer: The capital of France is Paris.
+
+Question: What is the largest planet in our solar system?
+Answer: The largest planet in our solar system is Jupiter.
+
+Question: Who wrote "Romeo and Juliet"?
+Answer: "Romeo and Juliet" was written by William Shakespeare.
