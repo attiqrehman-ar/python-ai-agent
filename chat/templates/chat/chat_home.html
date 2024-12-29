@@ -2,6 +2,17 @@
 <html>
 <head>
     <title>Chat Interface</title>
+    <style>
+        .chat-message {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <h1>Chat with AI Agent</h1>
@@ -10,7 +21,8 @@
         <input type="text" id="question" name="question" required>
         <button type="submit">Ask</button>
     </form>
-    <div id="response"></div>
+    
+    <div id="response"></div> <!-- This will hold all responses -->
 
     <script>
         document.getElementById('chat-form').addEventListener('submit', async function(e) {
@@ -28,7 +40,22 @@
             });
 
             const data = await response.json();
-            responseDiv.innerHTML = `<p><strong>Question:</strong> ${data.question}</p><p><strong>Answer:</strong> ${data.answer}</p>`;
+
+            // Create new chat message elements
+            const questionElement = document.createElement('p');
+            questionElement.classList.add('chat-message', 'question');
+            questionElement.innerHTML = `<strong>Question:</strong> ${data.question}`;
+
+            const answerElement = document.createElement('p');
+            answerElement.classList.add('chat-message', 'answer');
+            answerElement.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
+
+            // Append the new question and answer below the previous ones
+            responseDiv.appendChild(questionElement);
+            responseDiv.appendChild(answerElement);
+
+            // Scroll to the latest message
+            responseDiv.scrollTop = responseDiv.scrollHeight;
         });
     </script>
 </body>

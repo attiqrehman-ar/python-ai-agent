@@ -49,7 +49,7 @@ def ask_question(request):
         else:
             best_answer = default_response
 
-        # Format the output
+        # Return the question, answer, and formatted response message as JSON
         response_message = f"**Your Question:** {user_query}\n\n**Answer:** {best_answer}"
 
         return JsonResponse({'question': user_query, 'answer': best_answer, 'response_message': response_message})
