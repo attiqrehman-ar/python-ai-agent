@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-4">
-        <h2>Knowledge Base Documents</h2>
-        <a href="{% url 'knowledge_base:upload_document' %}" class="btn btn-success mb-3">Upload New Document</a>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Uploaded At</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for document in documents %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ document.title }}</td>
-                    <td>{{ document.uploaded_at }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Document List - AI Agent{% endblock %}
+
+{% block content %}
+<h2>Knowledge Base Documents</h2>
+<a href="{% url 'knowledge_base:upload_document' %}" class="btn btn-success mb-3">Upload New Document</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Uploaded At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for document in documents %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ document.title }}</td>
+            <td>{{ document.uploaded_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

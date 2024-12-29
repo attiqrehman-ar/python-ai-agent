@@ -57,7 +57,9 @@ ROOT_URLCONF = 'ai_agent.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+    'DIRS': [
+            BASE_DIR / 'templates',  # Global templates location, like base.html
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

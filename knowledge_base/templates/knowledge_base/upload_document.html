@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Knowledge Base - Upload Document</title>
-</head>
-<body>
-    <h1>Upload Document</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="document">Choose a file:</label>
-        <input type="file" name="document" id="document" required>
-        <button type="submit">Upload</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Upload Document - AI Agent{% endblock %}
+
+{% block content %}
+<h1>Upload Document</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="document">Choose a file:</label>
+    <input type="file" name="document" id="document" required>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
