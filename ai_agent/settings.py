@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'knowledge_base',
     'chat',
-    'admin_app'
+ 
 ]
 
 MIDDLEWARE = [
