@@ -28,9 +28,18 @@ def ask_question(request):
             file_path = os.path.join(doc.file.path)
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
+                # Check if the query matches a question in the document
                 if user_query.lower() in content.lower():
-                    answer_found = "Answer found in document: {}".format(doc.title)
-                    break
+                    # Extract the answer after the matching question
+                    lines = content.splitlines()
+                    for i, line in enumerate(lines):
+                        if user_query.lower() in line.lower():
+                            # Assuming the next line is the answer
+                            if i + 1 < len(lines):
+                                answer_found = lines[i + 1]  # Get the next line as the answer
+                            break
+                    if answer_found:
+                        break
         
         # Log the query and response
         UserQuery.objects.create(
