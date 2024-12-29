@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth import logout
 
 # Check if user is superuser
 def is_superuser(user):
@@ -69,3 +70,11 @@ def login_view(request):
             return render(request, 'knowledge_base/login.html')
 
     return render(request, 'knowledge_base/login.html')
+
+
+def logout_view(request):
+    """
+    Logs the user out and redirects them to the chat_home page (landing page).
+    """
+    logout(request)  # Logs the user out
+    return redirect('chat:chat_home') 

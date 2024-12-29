@@ -43,24 +43,19 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">AI Agent</a>
+            <a class="navbar-brand" href="{% url 'chat:chat_home' %}">AI Agent</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- {% comment %} <a class="nav-link" href="{% url '#' %}">Home</a> {% endcomment %} -->
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'knowledge_base:document_list' %}">Document List</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'knowledge_base:upload_document' %}">Upload Document</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- {% comment %} <a class="nav-link" href="{% url 'help' %}">Need Help</a> {% endcomment %} -->
                     </li>
                 </ul>
             </div>
