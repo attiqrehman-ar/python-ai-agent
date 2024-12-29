@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+40yvx0=-1vd$4_7bj^c^dps%^=sl9+=v#@3_rh%39b(_ju@1k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['ai-agent-jj4umhou8-attiq-ur-rehmans-projects-e1cba474.vercel.app', 'localhost'] 
+ALLOWED_HOSTS = ['ai-agent-mocha.vercel.app', 'localhost'] 
 
 
 # Application definition
@@ -141,7 +141,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'ai-agent-jj4umhou8-attiq-ur-rehmans-projects-e1cba474.vercel.app',  # Add your Vercel app URL here
+    'https://ai-agent-mocha.vercel.app',  # Add your Vercel app URL here
 ]
 import django_heroku
 django_heroku.settings(locals())
