@@ -1,0 +1,78 @@
+What is Python? - Python is a high-level, interpreted programming language known for its readability and versatility. It is widely used in web development, data analysis, artificial intelligence, scientific computing, and more.
+
+What is AI? - Artificial Intelligence (AI) refers to the simulation of human intelligence in machines programmed to think and act like humans. AI can be used in various fields, including natural language processing, robotics, and computer vision.
+
+What is Machine Learning? - Machine Learning is a subset of AI that involves the use of algorithms and statistical models to allow machines to improve their performance on tasks through experience. It includes supervised learning, unsupervised learning, and reinforcement learning.
+
+What is Deep Learning? - Deep Learning is a branch of Machine Learning that focuses on algorithms inspired by the structure and function of the human brain, known as artificial neural networks. It is particularly useful for tasks like image recognition, speech processing, and natural language understanding.
+
+Who is the CEO of OpenAI? - The CEO of OpenAI is Sam Altman. OpenAI is an AI research organization focused on creating and promoting friendly AI for the benefit of humanity.
+
+What is the Internet of Things (IoT)? - The Internet of Things (IoT) refers to the interconnected network of physical devices, vehicles, appliances, and other objects embedded with sensors, software, and other technologies to exchange data.
+
+What is Cloud Computing? - Cloud Computing refers to the delivery of computing services such as servers, storage, databases, networking, software, and analytics over the internet (the cloud). This allows for more flexible resources and on-demand access.
+
+What is a neural network? - A neural network is a series of algorithms that attempt to recognize underlying relationships in a set of data through a process that mimics the way the human brain operates. It consists of layers of nodes, or neurons, that are connected to each other.
+
+What is Blockchain? - Blockchain is a decentralized, distributed digital ledger that records transactions across many computers. It is secure and transparent, making it popular in applications like cryptocurrencies, supply chain management, and voting systems.
+
+What is Quantum Computing? - Quantum Computing is a type of computing that uses quantum mechanics to perform operations on data. Unlike classical computers that use bits, quantum computers use qubits, which can exist in multiple states at once, enabling faster and more complex calculations.
+
+What is the difference between AI and Machine Learning? - AI is the broader concept that refers to creating machines capable of performing tasks that would typically require human intelligence, such as problem-solving, speech recognition, and decision-making. Machine Learning is a subset of AI focused on algorithms that allow machines to learn from data and improve their performance over time.
+
+What is Natural Language Processing (NLP)? - NLP is a field of AI that focuses on the interaction between computers and human (natural) languages. It involves tasks like speech recognition, language translation, and sentiment analysis.
+
+What is an algorithm? - An algorithm is a step-by-step procedure or formula for solving a problem. In computer science, algorithms are used to process data and perform calculations, automated reasoning tasks, and other problem-solving tasks.
+
+What is the Turing Test? - The Turing Test is a test of a machine's ability to exhibit intelligent behavior that is indistinguishable from that of a human. It was proposed by Alan Turing in 1950.
+
+What is Overfitting in Machine Learning? - Overfitting occurs when a machine learning model learns not only the underlying pattern in the training data but also the noise and random fluctuations. As a result, the model performs well on the training data but poorly on unseen data.
+
+What is Supervised Learning? - Supervised Learning is a type of machine learning where the algorithm is trained on labeled data. The model learns to map input data to the correct output labels, making it useful for tasks like classification and regression.
+
+What is Unsupervised Learning? - Unsupervised Learning is a type of machine learning where the algorithm is trained on unlabeled data. The goal is to find hidden patterns or structures in the data, such as clustering similar data points together.
+
+What is Reinforcement Learning? - Reinforcement Learning is a type of machine learning where an agent learns to make decisions by taking actions in an environment and receiving feedback in the form of rewards or penalties.
+
+What is the difference between supervised and unsupervised learning? - The key difference is that supervised learning uses labeled data to train a model to make predictions, while unsupervised learning uses unlabeled data to identify patterns or structures.
+
+What is the significance of the Color Contrast Ratio? - The color contrast ratio is an important factor in web accessibility, ensuring that text and background colors have enough contrast for users with visual impairments to read content clearly.
+
+What is a RESTful API? - A RESTful API (Representational State Transfer) is an architectural style for designing networked applications. It uses standard HTTP methods such as GET, POST, PUT, and DELETE to request and manipulate resources over the internet.
+
+What is a Microservices Architecture? - Microservices architecture is an approach to software design where an application is broken down into smaller, loosely coupled services that can be developed, deployed, and scaled independently.
+
+What is a Load Balancer? - A load balancer is a device or software that distributes network traffic across multiple servers to ensure that no single server is overwhelmed. This helps improve the performance and reliability of web applications.
+
+What is GDPR? - The General Data Protection Regulation (GDPR) is a regulation in the European Union that governs data protection and privacy for all individuals within the EU and the European Economic Area (EEA).
+
+What is an API Gateway? - An API Gateway is a server that acts as an API front-end, receiving API requests, aggregating the various services required to fulfill them, and sending the appropriate response.
+
+What is the difference between HTTP and HTTPS? - HTTP (Hypertext Transfer Protocol) is the standard protocol for transferring data on the web. HTTPS (HTTP Secure) is the secure version of HTTP, which uses SSL/TLS encryption to protect data during transmission.
+
+What is Docker? - Docker is an open-source platform that enables developers to automate the deployment of applications inside lightweight, portable containers. These containers contain everything needed to run the application, ensuring consistency across different environments.
+
+What is a Content Management System (CMS)? - A Content Management System (CMS) is a software application that allows users to create, manage, and modify digital content, typically for websites. Popular examples include WordPress, Joomla, and Drupal.
+
+What is SEO? - Search Engine Optimization (SEO) is the practice of optimizing web pages to rank higher in search engine results pages (SERPs). It involves techniques like keyword research, link building, and improving page load speed.
+
+What is an SEO audit? - An SEO audit is a comprehensive analysis of a website's SEO performance. It helps identify areas of improvement, such as technical issues, on-page optimization, and backlink profile, to boost search engine rankings.
+
+Who developed the first computer? - The first mechanical computer, known as the Analytical Engine, was designed by Charles Babbage in the 1830s. However, the first programmable computer was developed by Konrad Zuse in the 1940s.
+
+What is Git? - Git is a distributed version control system used to track changes in source code during software development. It allows multiple developers to collaborate on projects and manage different versions of the codebase.
+
+What is the purpose of a version control system? - A version control system allows developers to track changes to files, collaborate on code, and manage different versions of a project. It provides history, accountability, and the ability to revert to previous versions if needed.
+
+What is CI/CD? - Continuous Integration (CI) and Continuous Deployment (CD) are practices in software development where code changes are automatically tested and deployed to production environments. This helps ensure faster and more reliable software delivery.
+
+What is a Web Server? - A web server is a system that serves content over the web, typically using the HTTP protocol. It handles requests from clients (browsers) and serves files such as HTML, CSS, JavaScript, and images.
+
+What is a SQL Database? - A SQL (Structured Query Language) database is a type of relational database that uses SQL to manage and query data. SQL databases store data in tables and support powerful querying capabilities.
+
+What is NoSQL? - NoSQL is a type of database that does not use traditional relational models. It is often used for handling unstructured data or high-volume, low-latency applications. Popular NoSQL databases include MongoDB, Cassandra, and Redis.
+
+What is a Framework? - A framework is a set of tools, libraries, and best practices that provide a structure for building software applications. Frameworks simplify development by offering pre-built functionality for common tasks.
+
+What is a Library? - A library is a collection of pre-written code that can be used by developers to perform common tasks. Unlike a framework, a library does not dictate the overall structure of an application but offers reusable functions.
+
